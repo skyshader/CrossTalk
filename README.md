@@ -1,21 +1,21 @@
-#CrossTalk
+# CrossTalk
 PostMessaging made simpler!
 
 Cross domain communication using post message, promisified!
 
-##Install
+## Install
 NPM users: `npm install cross-talk --save`
 
 Yarn users: `yarn add cross-talk`
 
-##Import in project
+## Import in project
 
 Import CrossTalk in your project using ES6 syntax:
 
 `import CrossTalk from 'cross-talk'`
 
 
-##Init CrossTalk
+## Init CrossTalk
 The first thing that needs to be done is init CrossTalk with config options.
 
 ```
@@ -27,8 +27,8 @@ CrossTalk.init({
 })
 ```
 
-##API
-####Listen for message
+## API
+#### Listen for message
 
 ```
 CrossTalk.on('message-type', (data) => {
@@ -41,7 +41,7 @@ Note that `CrossTalk.on(...)` does not return a promise as it is an ongoing subs
 
 However it does return an Observable `subscription` that allows you to unsubscribe from the subscription at any point of time.
 
-####Listen for message once
+#### Listen for message once
 ```
 CrossTalk.once('message-type')
   .then((data) => {
@@ -54,7 +54,7 @@ Calling `once` will subscribe to the `message-type` event coming from external s
 Note that `CrossTalk.on(...)` returns a Promise which gets resolved when an event of the specified type occurs.
 
 
-####Send a message
+#### Send a message
 ```
 CrossTalk.send('message-type', data);
 ```
@@ -62,7 +62,7 @@ CrossTalk.send('message-type', data);
 If you just want to send a message to targets and don't care of their actions, use `send(...)`. It doesn't return anything.
 
 
-####Send a message and wait for response
+#### Send a message and wait for response
 ```
 CrossTalk.sendForResult('message-type', data)
   .then((data) => {
@@ -72,19 +72,19 @@ CrossTalk.sendForResult('message-type', data)
 `sendForResult(...)` sends the event to target and waits for the same event to be received from external sources. It calls `once(...)` on the `message-type` provided by you and returns a promise.
 
 
-####Destruct CrossTalk
+#### Destruct CrossTalk
 ```
 CrossTalk.stop();
 ```
 
 This removes the event listener on `message`, clears the config object and the list of events occurred and not yet handled.
 
-##Future Plans
+## Future Plans
 
 - Add support for multiple targets
 - Add possibility to provide config for individual actions.
 - Add example and demo
 - Add tests
 
-##Contribute
+## Contribute
 Open an issue and feel free to contribute to this project.
