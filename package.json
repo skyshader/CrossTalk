@@ -2,7 +2,7 @@
   "title": "CrossTalk",
   "name": "cross-talk",
   "main": "src/index.js",
-  "version": "0.0.1-beta",
+  "version": "0.0.2-beta",
   "description": "PostMessaging made simpler!",
   "scripts": {
     "start": "npm run build",
