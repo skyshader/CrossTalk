@@ -31,8 +31,8 @@ const CrossTalk = {
     return MessageStore.store(type)
       .subscribe((messages) => {
         if (messages[type] && type === messages[type].type) {
+          handler && handler(messages[type]);
           MessageStore.removeMessage(type);
-          handler && handler();
         }
       });
   },
