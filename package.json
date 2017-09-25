@@ -2,7 +2,7 @@
   "title": "CrossTalk",
   "name": "cross-talk",
   "main": "dist/cross-talk.min.js",
-  "version": "0.0.4-beta",
+  "version": "0.0.6-beta",
   "description": "PostMessaging made simpler!",
   "files": ["dist/cross-talk.min.js"],
   "scripts": {

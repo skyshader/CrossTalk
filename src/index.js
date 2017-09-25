@@ -9,7 +9,10 @@ const CrossTalk = {
   config: config,
 
   _messageHandler: (event) => {
-    if (CrossTalk.config.targetIdentifier !== event.data.identifier) {
+    if (
+      !CrossTalk.config.targetIdentifier ||
+      CrossTalk.config.targetIdentifier !== event.data.identifier
+    ) {
       return;
     }
 
@@ -57,6 +60,16 @@ const CrossTalk = {
   },
 
   send: (type, payload) => {
+    if (
+      !CrossTalk.config ||
+      !CrossTalk.config.sourceIdentifier ||
+      !CrossTalk.config.targetWindow ||
+      !CrossTalk.config.targetEndpoint
+    ) {
+      console.error('CrossTalk is not initialized at the moment! Please call the init method with proper params and try again.');
+      return;
+    }
+
     const data = {
       payload,
       type,
